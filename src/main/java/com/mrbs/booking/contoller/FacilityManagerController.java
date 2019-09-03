@@ -126,15 +126,15 @@ public class FacilityManagerController {
 	@RequestMapping(value = "/viewmonthrequests", method = RequestMethod.GET)
 	public ModelAndView viewMonthRequests(HttpServletRequest request, HttpServletResponse response) {
 		RestTemplate rest = new RestTemplate();
-		ModelAndView mv = new ModelAndView();
+		ModelAndView modelandview = new ModelAndView();
 		ResponseEntity<List<MeetingRequest>> responseEntity = rest.exchange(
 				"http://localhost:8080/fmfunc/getmonthrequests", HttpMethod.GET, null,
 				new ParameterizedTypeReference<List<MeetingRequest>>() {
 				});
-		mv.addObject("list", responseEntity.getBody());
+		modelandview.addObject("list", responseEntity.getBody());
 		request.setAttribute("list", responseEntity.getBody());
-		mv.setViewName("MonthBookings.jsp");
-		return mv;
+		modelandview.setViewName("MonthBookings.jsp");
+		return modelandview;
 	}
 
 	// This Method is called from the FMFunctionalities jsp page and this method is
@@ -145,14 +145,14 @@ public class FacilityManagerController {
 	@RequestMapping(value = "/AcceptReject", method = RequestMethod.GET)
 	public ModelAndView viewRequests(HttpServletRequest request, HttpServletResponse response) {
 		RestTemplate rest = new RestTemplate();
-		ModelAndView mv = new ModelAndView();
+		ModelAndView modelandview = new ModelAndView();
 		ResponseEntity<List<MeetingRequest>> responseEntity = rest.exchange("http://localhost:8080/fmfunc/getrequests",
 				HttpMethod.GET, null, new ParameterizedTypeReference<List<MeetingRequest>>() {
 				});
-		mv.addObject("list", responseEntity.getBody());
+		modelandview.addObject("list", responseEntity.getBody());
 		request.setAttribute("list", responseEntity.getBody());
-		mv.setViewName("RequestTable.jsp");
-		return mv;
+		modelandview.setViewName("RequestTable.jsp");
+		return modelandview;
 	}
 
 	// This Method is called from the FMFunctionalities jsp page and this method is
@@ -227,10 +227,10 @@ public class FacilityManagerController {
 		ResponseEntity<ArrayList<String>> responseEntity1 = rest.exchange("http://localhost:8080/fmfunc/getresource",
 				HttpMethod.GET, null, new ParameterizedTypeReference<ArrayList<String>>() {
 				});
-		ModelAndView mv = new ModelAndView("ResourceUsed.jsp");
+		ModelAndView modelandview = new ModelAndView("ResourceUsed.jsp");
 
-		mv.addObject("resources", responseEntity1.getBody());
-		return mv;
+		modelandview.addObject("resources", responseEntity1.getBody());
+		return modelandview;
 	}
 
 	// This Method is called from the FMFunctionalities jsp page and this method is
@@ -269,10 +269,10 @@ public class FacilityManagerController {
 		ResponseEntity<ArrayList<String>> responseEntity1 = rest.exchange("http://localhost:8080/fmfunc/getmeetingroom",
 				HttpMethod.GET, null, new ParameterizedTypeReference<ArrayList<String>>() {
 				});
-		ModelAndView mv = new ModelAndView("MeetingRoom.jsp");
+		ModelAndView modelandview = new ModelAndView("MeetingRoom.jsp");
 
-		mv.addObject("meetingrooms", responseEntity1.getBody());
-		return mv;
+		modelandview.addObject("meetingrooms", responseEntity1.getBody());
+		return modelandview;
 	}
 
 	// This Method is called from the FMFunctionalities jsp page and this method is
