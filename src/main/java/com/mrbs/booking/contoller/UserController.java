@@ -29,9 +29,9 @@ import antlr.collections.List;
 @Controller
 public class UserController {
 
-	DateTimeFormatter timestamp = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 	LocalDateTime now = LocalDateTime.now();
-	DateTimeFormatter datestamp = DateTimeFormatter.ofPattern("HH:mm:ss");
+	DateTimeFormatter dtf1 = DateTimeFormatter.ofPattern("HH:mm:ss");
 	LocalDateTime nowtime = LocalDateTime.now();
 
 	// This method gets called from UserFunctionalities jsp and is used to request a
@@ -100,8 +100,8 @@ public class UserController {
 		meetingrequest.setEndtime(request.getParameter("endtime"));
 		meetingrequest.setResource(request.getParameter("Resource_name"));
 		meetingrequest.setStatus("NEW");
-		meetingrequest.setTimestamp(timestamp.format(now));
-		meetingrequest.setTime(datestamp.format(nowtime));
+		meetingrequest.setTimestamp(dtf.format(now));
+		meetingrequest.setTime(dtf1.format(nowtime));
 		meetingrequest.setUser((String) session.getAttribute("username"));
 		System.out.println(session.getAttribute("username"));
 

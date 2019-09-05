@@ -12,7 +12,7 @@
 	<br>
 	<%
 		String count = (String) request.getAttribute("status");
-		out.println("The Meetingroom is used " + count + "times");
 	%>
+	<%="The Meetingroom is used " + count + "times" %>
 </body>
 </html>

@@ -2,9 +2,10 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
 <marquee direction="right" scrollamount="12" behavior="alternate">MEETING
 	ROOM BOOKING SYSTEM</marquee>
+<head>
+ <link rel="stylesheet" href="style.css">
 <script type="text/javascript">
 	function display() {
 		var username = document.forms["form"]["username"].value;

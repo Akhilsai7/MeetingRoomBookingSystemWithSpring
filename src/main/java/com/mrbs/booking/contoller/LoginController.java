@@ -18,10 +18,10 @@ public class LoginController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView logincontroller() {
-		ModelAndView mv = new ModelAndView("Login.jsp");
+		ModelAndView modelandview = new ModelAndView("Login.jsp");
 		LoginBean log = new LoginBean();
-		mv.addObject(log);
-		return mv;
+		modelandview.addObject(log);
+		return modelandview;
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
@@ -30,7 +30,6 @@ public class LoginController {
 		session.setAttribute("username", log.getUsername());
 		RestTemplate resttemplate = new RestTemplate();
 		String status = resttemplate.postForObject(url, log, String.class);
-		System.out.println(status);
 		if (status.equals("FM")) {
 			return "redirect:FMFunctionalities.jsp";
 		} else if (status.equals("USER")) {

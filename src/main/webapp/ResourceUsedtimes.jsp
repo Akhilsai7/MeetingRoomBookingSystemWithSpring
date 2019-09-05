@@ -12,7 +12,9 @@
 	<br>
 	<%
 		String count = (String) request.getAttribute("status");
-		out.println("The Resource is used " + count + "times");
+		
+	
 	%>
+	<%= "The resource is used "+count+" times" %>
 </body>
 </html>
