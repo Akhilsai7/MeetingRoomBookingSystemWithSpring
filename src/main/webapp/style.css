@@ -1,0 +1,19 @@
+@charset "UTF-8";
+marquee
+{
+background-color:grey;	
+}
+body {
+  background-image: url("https://images.unsplash.com/photo-1566303418941-917448c1df2a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=843&q=80");
+  background-position: center;
+  background-repeat: no-repeat; 
+  background-size: cover;
+}
+p:hover{
+  color: red;
+}
+input:hover
+{
+	background-color:powderblue;
+}
+

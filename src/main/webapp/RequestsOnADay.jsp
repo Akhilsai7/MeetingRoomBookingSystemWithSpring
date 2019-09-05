@@ -12,7 +12,8 @@
 	<br>
 	<%
 		String count = (String) request.getAttribute("status");
-		out.println("The no of requests on day are:" + count);
+		
 	%>
+	<%= "The no of requests on day are: " + count%>
 </body>
 </html>

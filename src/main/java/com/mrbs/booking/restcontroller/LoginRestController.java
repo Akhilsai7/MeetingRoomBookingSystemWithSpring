@@ -21,10 +21,8 @@ public class LoginRestController {
 
 	@RequestMapping(value = "/log", method = RequestMethod.POST)
 	public String insert(@RequestBody LoginBean log) {
-		System.out.println(log + "&^&&*&");
 		ArrayList<LoginBean> loginbean1 = (ArrayList<LoginBean>) loginrep.findAll();
 		String status = new LoginDao().check(log, loginbean1);
-		System.out.println(status);
 		return status;
 
 	}

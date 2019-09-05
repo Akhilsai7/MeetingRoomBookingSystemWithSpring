@@ -26,15 +26,21 @@
 			</tr>
 		</thead>
 		<tr>
-			<%
+			 <%
 				for (MeetingRequest meetingrequest : meetingrequests) {
-					out.print("<tr><td>" + meetingrequest.getID() + "</td>" + "<td>" + meetingrequest.getStartdate()
-							+ "</td>" + "<td>" + meetingrequest.getEnddate() + "</td>" + "<td>"
-							+ meetingrequest.getStarttime() + "</td>" + "<td>" + meetingrequest.getEndtime() + "</td>"
-							+ "<td>" + meetingrequest.getUser() + "</td>" + "<td>" + meetingrequest.getMrname() + "</td>"
-							+ "<td>" + meetingrequest.getResource() + "</td>" + "<td>" + meetingrequest.getStatus()
-							+ "</td>");
-				}
+					%>
+					<tr>
+					<td> <%=meetingrequest.getID()%></td>
+					<td><%=meetingrequest.getStartdate() %></td>
+					<td><%=meetingrequest.getEnddate() %></td>
+					<td><%=meetingrequest.getStarttime() %></td>
+					<td><%=meetingrequest.getEndtime() %></td>
+					<td><%=meetingrequest.getUser() %></td>
+					<td><%=meetingrequest.getMrname() %></td>
+					<td><%=meetingrequest.getResource() %></td>
+					<td><%=meetingrequest.getStatus() %></td>
+					</tr>
+				<% }
 			%>
 		</tr>
 	</table>

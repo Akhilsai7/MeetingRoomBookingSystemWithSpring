@@ -55,11 +55,11 @@ public class UserController {
 					"http://localhost:8080/userfunc/getresource", HttpMethod.GET, null,
 					new ParameterizedTypeReference<ArrayList<String>>() {
 					});
-			ModelAndView mv = new ModelAndView("MeetingRequest.jsp");
+			ModelAndView modelandview = new ModelAndView("MeetingRequest.jsp");
 
-			mv.addObject("meetingrooms", responseEntity.getBody());
-			mv.addObject("resources", responseEntity1.getBody());
-			return mv;
+			modelandview.addObject("meetingrooms", responseEntity.getBody());
+			modelandview.addObject("resources", responseEntity1.getBody());
+			return modelandview;
 		}
 		// This method gets called from UserFunctionalities jsp and is used to cancel a
 		// meeting room.
@@ -71,13 +71,13 @@ public class UserController {
 			String url = "http://localhost:8080/userfunc/check";
 			HttpHeaders requestHeaders = new HttpHeaders();
 			HttpEntity<String> requestEntity = new HttpEntity<>(user, requestHeaders);
-			RestTemplate rt = new RestTemplate();
-			ResponseEntity<ArrayList<MeetingRequest>> status = rt.exchange(url, HttpMethod.POST, requestEntity,
+			RestTemplate rest = new RestTemplate();
+			ResponseEntity<ArrayList<MeetingRequest>> status = rest.exchange(url, HttpMethod.POST, requestEntity,
 					new ParameterizedTypeReference<ArrayList<MeetingRequest>>() {
 					});
-			ModelAndView mv = new ModelAndView("Userrequests.jsp");
-			mv.addObject("meetingrequests", status.getBody());
-			return mv;
+			ModelAndView modelandview = new ModelAndView("Userrequests.jsp");
+			modelandview.addObject("meetingrequests", status.getBody());
+			return modelandview;
 		}
 
 		return null;
