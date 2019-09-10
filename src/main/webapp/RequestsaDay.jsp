@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>No of requests in a day</title>
+<link rel="stylesheet" href="Fm.css">
 </head>
 <body>
 

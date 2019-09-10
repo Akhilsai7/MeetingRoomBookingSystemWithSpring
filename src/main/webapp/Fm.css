@@ -1,21 +1,23 @@
 @charset "UTF-8";
 
+
 body {
-background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtrG3xR23P-reD8PcIJDtDlOnlzO1xvmomJgS0DOR-R4T2aZ3V");
+background-image: url("https://cdn.pixabay.com/photo/2016/11/05/12/38/fuzzy-1800136__340.jpg");
 background-repeat: no-repeat;
 background-position: center;
 background-attachment: scroll;
 background-size: 2000px;
 }
-
+input[type=button] {
+border:none;
+height: 35px;
+text-shadow: 2px 2px 5px silver;
+width: 150px;
+border-radius: 12px;
+}
 input[type=text]{
 background-color: gray;
 text-shadow: 2px 2px 5px silver;
-color: black;
-}
-
-input[type=password]{
-background-color: gray;
 color: black;
 }
 
@@ -26,7 +28,6 @@ text-shadow: 2px 2px 5px silver;
 width: 150px;
 border-radius: 12px;
 }
-
 input[type=reset] {
 border:none;
 height: 35px;

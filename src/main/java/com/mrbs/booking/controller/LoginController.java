@@ -1,7 +1,9 @@
-package com.mrbs.booking.contoller;
+package com.mrbs.booking.controller;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,7 +17,12 @@ import com.mrbs.booking.bean.LoginBean;
 @RequestMapping("/control")
 @SessionAttributes("login")
 public class LoginController {
-
+	@Autowired
+	Environment environment;
+	
+	
+	
+	
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView logincontroller() {
 		ModelAndView modelandview = new ModelAndView("Login.jsp");
@@ -26,7 +33,8 @@ public class LoginController {
 
 	@RequestMapping(method = RequestMethod.POST)
 	public String logincontrol(LoginBean log, HttpSession session) {
-		String url = "http://localhost:8080/valid/log";
+		String port = environment.getProperty("local.server.port");
+		String url = "http://localhost:"+port+"/valid/log";
 		session.setAttribute("username", log.getUsername());
 		RestTemplate resttemplate = new RestTemplate();
 		String status = resttemplate.postForObject(url, log, String.class);

@@ -1,4 +1,4 @@
-package com.mrbs.booking.contoller;
+package com.mrbs.booking.controller;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -29,9 +31,15 @@ import antlr.collections.List;
 @Controller
 public class UserController {
 
-	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+	
+	@Autowired
+	Environment environment;
+	
+	
+	
+	DateTimeFormatter datetimeformat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 	LocalDateTime now = LocalDateTime.now();
-	DateTimeFormatter dtf1 = DateTimeFormatter.ofPattern("HH:mm:ss");
+	DateTimeFormatter timeformat = DateTimeFormatter.ofPattern("HH:mm:ss");
 	LocalDateTime nowtime = LocalDateTime.now();
 
 	// This method gets called from UserFunctionalities jsp and is used to request a
@@ -45,14 +53,14 @@ public class UserController {
 		// System.out.println(variable);
 		if (variable.equals("request")) {
 			RestTemplate rest = new RestTemplate();
-
+			String port = environment.getProperty("local.server.port");
 			ResponseEntity<ArrayList<String>> responseEntity = rest.exchange(
-					"http://localhost:8080/userfunc/getmeetingroom", HttpMethod.GET, null,
+					"http://localhost:"+port+"/userfunc/getmeetingroom", HttpMethod.GET, null,
 					new ParameterizedTypeReference<ArrayList<String>>() {
 					});
 
 			ResponseEntity<ArrayList<String>> responseEntity1 = rest.exchange(
-					"http://localhost:8080/userfunc/getresource", HttpMethod.GET, null,
+					"http://localhost:"+port+"/userfunc/getresource", HttpMethod.GET, null,
 					new ParameterizedTypeReference<ArrayList<String>>() {
 					});
 			ModelAndView modelandview = new ModelAndView("MeetingRequest.jsp");
@@ -66,9 +74,10 @@ public class UserController {
 		// This gets executed and forwared to UserrestController and gets a table of
 		// request of particular user and gives option of cancelling meeting room.
 		if (variable.equals("cancel")) {
+			String port = environment.getProperty("local.server.port");
 			String user = (String) session.getAttribute("username");
 			System.out.println(user);
-			String url = "http://localhost:8080/userfunc/check";
+			String url = "http://localhost:"+port+"/userfunc/check";
 			HttpHeaders requestHeaders = new HttpHeaders();
 			HttpEntity<String> requestEntity = new HttpEntity<>(user, requestHeaders);
 			RestTemplate rest = new RestTemplate();
@@ -91,6 +100,7 @@ public class UserController {
 	@RequestMapping(value = "requestmeeting", method = RequestMethod.POST)
 	public String requestmeeting(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String port = environment.getProperty("local.server.port");
 		HttpSession session = request.getSession();
 		MeetingRequest meetingrequest = new MeetingRequest();
 		meetingrequest.setMrname(request.getParameter("Meetingroom_name"));
@@ -100,12 +110,12 @@ public class UserController {
 		meetingrequest.setEndtime(request.getParameter("endtime"));
 		meetingrequest.setResource(request.getParameter("Resource_name"));
 		meetingrequest.setStatus("NEW");
-		meetingrequest.setTimestamp(dtf.format(now));
-		meetingrequest.setTime(dtf1.format(nowtime));
+		meetingrequest.setTimestamp(datetimeformat.format(now));
+		meetingrequest.setTime(timeformat.format(nowtime));
 		meetingrequest.setUser((String) session.getAttribute("username"));
 		System.out.println(session.getAttribute("username"));
 
-		String url = "http://localhost:8080/userfunc/requestmeetingroom";
+		String url = "http://localhost:"+port+"/userfunc/requestmeetingroom";
 
 		RestTemplate resttemplate = new RestTemplate();
 		String status = resttemplate.postForObject(url, meetingrequest, String.class);
@@ -122,9 +132,10 @@ public class UserController {
 	@RequestMapping(value = "cancelmeeting", method = RequestMethod.POST)
 	public String cancelmeeting(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String port = environment.getProperty("local.server.port");
 		MeetingRequest meetingrequest = new MeetingRequest();
 		meetingrequest.setID(Integer.parseInt(request.getParameter("requestid")));
-		String url = "http://localhost:8080/userfunc/cancelrequest";
+		String url = "http://localhost:"+port+"/userfunc/cancelrequest";
 		RestTemplate resttemplate = new RestTemplate();
 		String status = resttemplate.postForObject(url, meetingrequest, String.class);
 		if (status.equals("CANCELLED"))

@@ -2,11 +2,13 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<marquee direction="right" scrollamount="12" behavior="alternate">MEETING
+<marquee direction="right" scrollamount="12" behavior="alternate" bgcolor="silver">MEETING
 	ROOM BOOKING SYSTEM</marquee>
 <head>
+
 <meta charset="UTF-8">
 <title>Admin Functions</title>
+<link rel="stylesheet" href="Fm.css">
 </head>
 <body align="center">
 	<h2 align="center">Facility Manager Functionalities</h2>

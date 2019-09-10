@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Add Resource</title>
+<link rel="stylesheet" href="Fm.css">
 </head>
 <body>
 	<%@include file="FMFunctionalities.jsp"%>

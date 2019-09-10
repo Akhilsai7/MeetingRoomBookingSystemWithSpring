@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>USER FUNCTIONALITIES</title>
+<link rel="stylesheet" href="User.css">
 </head>
 <body align="center">
 	<h2 align="center">User Functionalities</h2>

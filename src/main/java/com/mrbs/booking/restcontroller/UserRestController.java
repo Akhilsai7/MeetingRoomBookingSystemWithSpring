@@ -26,7 +26,6 @@ public class UserRestController {
 	// to userdao.
 	@RequestMapping(value = "/getmeetingroom", method = RequestMethod.GET)
 	public ArrayList<String> getmeetingroom() {
-		System.out.println(userdao.getMeetingRoom());
 		return userdao.getMeetingRoom();
 	}
 
