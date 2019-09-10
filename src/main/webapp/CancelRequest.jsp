@@ -6,6 +6,7 @@
 
 <meta charset="UTF-8">
 <title>Cancel Meeting Room</title>
+<link rel="stylesheet" href="User.css">
 </head>
 <body>
 

@@ -1,6 +1,6 @@
 package com.mrbs.booking.restcontroller;
 
-import java.util.ArrayList;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,11 +18,12 @@ public class LoginRestController {
 
 	@Autowired
 	LoginRepo loginrep;
+	@Autowired
+	LoginDao loginDao;
 
 	@RequestMapping(value = "/log", method = RequestMethod.POST)
 	public String insert(@RequestBody LoginBean log) {
-		ArrayList<LoginBean> loginbean1 = (ArrayList<LoginBean>) loginrep.findAll();
-		String status = new LoginDao().check(log, loginbean1);
+		String status=loginDao.check(log);
 		return status;
 
 	}

@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Resource times</title>
+<link rel="stylesheet" href="Fm.css">
 </head>
 <body>
 	<form name="Newrequest" style="text-align: center" method="post"

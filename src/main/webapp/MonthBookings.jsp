@@ -2,10 +2,12 @@
 	pageEncoding="UTF-8" import="java.util.*,com.mrbs.booking.bean.*"%>
 <!DOCTYPE html>
 <html>
-<head>
 <marquee direction="right" scrollamount="12" behavior="scroll">MEETING
 	ROOM BOOKING SYSTEM</marquee>
+<head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="Fm.css">
+</head>
 <body>
 
 	<%

@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<marquee direction="right" scrollamount="12" behavior="alternate">MEETING
+<marquee direction="right" scrollamount="12" behavior="alternate" bgcolor="silver">MEETING
 	ROOM BOOKING SYSTEM</marquee>
 <head>
  <link rel="stylesheet" href="style.css">
@@ -36,7 +36,7 @@
 <title>Login Page</title>
 </head>
 <body>
-	<form name="form" style="text-align: center" method="post"
+	 <form name="form" style="text-align: center" method="post"
 		action="control" onsubmit="return display();">
 		<h2 align="center">Login</h2>
 		<p>
@@ -47,10 +47,10 @@
 			Password: <input type="password" name="password" />
 		</p>
 		<p id='enter1'></p>
-		<input type="reset" name="index_clear" value="Clear"> <input
-			type="submit" name="index_validate" value="submit">
-
-
-	</form>
+		<input type="reset" name="index_clear" value="Clear"> 
+		<input type="submit" name="index_validate" value="submit">
+	</form>  
+	
+	 
 </body>
 </html>

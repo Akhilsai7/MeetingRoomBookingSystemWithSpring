@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Requesting Meeting Room</title>
+<link rel="stylesheet" href="User.css">
 </head>
 <body>
 	<%@include file="UserFunctionalities.jsp"%>

@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Accept Request</title>
+<link rel="stylesheet" href="Fm.css">
 </head>
 <body>
 	<form action="acceptorreject" method="post">
