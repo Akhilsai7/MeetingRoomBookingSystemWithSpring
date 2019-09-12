@@ -8,9 +8,9 @@ import com.sun.istack.NotNull;
 @Entity
 public class Resource {
 	
-	@Id
-	private int resourceid;
 	@NotNull
+	private int resourceid;
+	@Id
 	private String resourcename;
 	public int getResourceid() {
 		return resourceid;
@@ -24,10 +24,4 @@ public class Resource {
 	public void setResourcename(String resourcename) {
 		this.resourcename = resourcename;
 	}
-	@Override
-	public String toString() {
-		return "Resource [resourceid=" + resourceid + ", resourcename=" + resourcename + "]";
-	}
-	
-	
 }

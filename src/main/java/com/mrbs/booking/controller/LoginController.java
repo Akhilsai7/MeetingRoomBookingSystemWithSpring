@@ -42,9 +42,8 @@ public class LoginController {
 			return "redirect:FMFunctionalities.jsp";
 		} else if (status.equals("USER")) {
 			return "redirect:UserFunctionalities.jsp";
-		} else {
-			System.out.println("enter valid id or password");
-		}
-		return "redirect:Login.jsp";
+		} 
+		else
+			return "redirect:Error.jsp";
 	}
 }
