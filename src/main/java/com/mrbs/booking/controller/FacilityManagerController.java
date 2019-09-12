@@ -33,8 +33,6 @@ public class FacilityManagerController {
 	Environment environment;
 	
 	
-
-
 	// This Method is called from the FMFunctionalities jsp page and this method is
 	// used to add a user to database.
 	// After this method gets executed it is forwarded to the
@@ -104,8 +102,9 @@ public class FacilityManagerController {
 		String status = resttemplate.postForObject(url, resource, String.class);
 		if (status.equals("ADDED"))
 			return "redirect:FMFunctionalities.jsp";
-		else
+		else if(status.equals("NOTADDED"))
 			return "redirect:Error.jsp";
+		return status;
 	}
 
 	// This Method is called from the FMFunctionalities jsp page and this method is

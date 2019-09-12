@@ -22,12 +22,13 @@ color: black;
 }
 
 input[type=submit] {
-border:none;
-height: 35px;
-text-shadow: 2px 2px 5px silver;
-width: 150px;
-border-radius: 12px;
+	border:none;
+	height: 35px;
+	text-shadow: 2px 2px 5px silver;
+	width: 200px;
+	border-radius: 12px;
 }
+
 input[type=reset] {
 border:none;
 height: 35px;

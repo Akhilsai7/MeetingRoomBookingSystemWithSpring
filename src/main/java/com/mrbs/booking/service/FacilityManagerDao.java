@@ -39,7 +39,6 @@ public class FacilityManagerDao {
 
 	// This method saves data of new meeting room to database.
 	public String addmeetingroom(MeetingRoom meetingroom) {
-
 		meetingroomrepo.save(meetingroom);
 		return "ADDED";
 	}
@@ -47,6 +46,7 @@ public class FacilityManagerDao {
 	// This method saves data of new resource to database.
 	public String addresource(Resource resource) {
 		if (resource != null) {
+			
 			resourcerepo.save(resource);
 			return "ADDED";
 		}

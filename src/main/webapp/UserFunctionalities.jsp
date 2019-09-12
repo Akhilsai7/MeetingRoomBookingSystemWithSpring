@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<marquee direction="right" scrollamount="12" behavior="scroll">MEETING
+<marquee direction="right" scrollamount="12" behavior="scroll" bgcolor="silver">MEETING
 	ROOM BOOKING SYSTEM</marquee>
 <head>
 <meta charset="UTF-8">
@@ -18,8 +18,11 @@
 		</h3>
 		<h3>
 			<input type="submit" name="operation" value="cancel">
-
 		</h3>
+
 	</form>
 </body>
+<form action="Login.jsp">
+	<input type="submit" value="LOGOUT"> <br> <br>
+</form>
 </html>
