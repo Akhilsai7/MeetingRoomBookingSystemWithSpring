@@ -26,13 +26,4 @@ public interface MeetingRequestRepo extends JpaRepository<MeetingRequest, Intege
 	
 	@Query("select count(s) from MeetingRequest s where s.mrname=?1")
 	public String getmeetingroomused(String room);
-
-	
-
-	
-
-	
-	
-	
-
 }
